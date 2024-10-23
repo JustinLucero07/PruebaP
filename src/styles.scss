@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    padding: auto;
+    background-color: whitesmoke;
+    padding: 0;
+    margin: 0;
+
+}
+
+h2{
+    color: cadetblue;
+}
+
+div{
+    background-color: azure;
+    border-radius: 25px;
+    border: 1px;
+
+}
+
+.angular-logo{
+    color: aqua;
+    stop-color: blue;
+    offset: 0.8;
+}
+
+defs radialGradient stop{
+    stop-color: green;
+    offset: 0.8px;
+}

@@ -1,0 +1,87 @@
+<h1>Hello, {{ title }} {{name}}</h1>
+      <h2>{{name}}</h2>
+      <p>
+        Edad = {{edad}} {{esmayordeedad()}}<br />
+        Salario mensual = {{salario}} <br />
+        Salario anual = {{salario *12}} <br />
+      </p>
+      <hr />
+      <p (click)="incrementar()">
+        Edad = {{edad}} <span *ngIf="edad < 18">Es menor de edad</span><br />
+      </p>
+      <ul>
+        <li *ngFor="let sueldo of sueldos">{{sueldo *contador}}</li>
+      </ul>
+      <hr />
+      <p>
+        {{contador}} <br />
+        <button (click)="incrementar()">Incrementar</button>
+      </p>
+      <hr />
+      <form>
+        <input type="text" name="textName" [(ngModel)]="name" /> <br />
+        A = <input type="number" name="textA" [(ngModel)]="a" /> <br />
+        B = <input type="number" name="textB" [(ngModel)]="b" /> <br />
+        C = <input type="number" name="textC" [(ngModel)]="c" /> <br />
+        <button (click)="sumar()">Sumar</button>
+      </form>
+      <ul>
+        <hr />
+        <table border="1">
+          <tr>
+            <th>Codigo</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+          </tr>
+          <tr *ngFor="let articulo of articulos">
+            <td>{{articulo.codigo}}</td>
+            <td>{{articulo.descripcion}}</td>
+            <td>{{articulo.precio}}</td>
+            <td>
+              <button (click)="borrar(articulo.codigo)">Borrar</button>
+              <button (click)="seleccionar(articulo.codigo)">Seleccionar</button>
+            </td>
+          </tr>
+        </table>
+
+        <app-formulario #formulario (nform)="guardar($event)"></app-formulario>
+      </ul>
+      <hr />
+      <app-dado #dado1 color="red"></app-dado>
+      <app-dado #dado2 color="black"></app-dado>
+      <app-dado #dado3 color="blue"></app-dado>
+
+      <hr />
+      <button (click)="dado1.lanzar()">Lanzar 1</button>
+      <button (click)="dado2.lanzar()">Lanzar 2</button>
+      <button (click)="dado3.lanzar()">Lanzar 3</button><br />
+      <button (click)="dado1.lanzar();dado2.lanzar();dado3.lanzar()">Lanzar Todos 1</button>
+      <button (click)="lanzar()">Lanzar Todos 2</button>
+      <p>{{msj}}</p>
+
+      <hr />
+      {{minuto}} min.
+      <app-cronometro (minuto)="actualizar($event)"></app-cronometro>
+      <ul>
+        <hr />
+        <table border="1">
+          <tr>
+            <th>Nombre</th>
+            <th>Raza</th>
+            <th>Foto</th>
+            <th>Acciones</th>
+          </tr>
+          <tr *ngFor="let perro of perros">
+            <td>{{perro.nombre}}</td>
+            <td>{{perro.raza}}</td>
+            <td><img src="{{perro.foto}}" width="100px"/></td>
+            <td>
+              <button>Borrar</button>
+              <button>Seleccionar</button>
+              <img [src]="perro.foto" width="100px"/>
+            </td>
+          </tr>
+        </table>
+      </ul>
+      <p>Congratulations! Your app is running. 🎉</p>
